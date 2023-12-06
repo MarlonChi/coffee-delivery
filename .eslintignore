@@ -1,5 +1,6 @@
 !.storybook
 !.jest
+generators
 
-!tsconfig.json
-!tsconfig.node.json
+tsconfig.json
+tsconfig.node.json
