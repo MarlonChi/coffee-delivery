@@ -19,7 +19,7 @@ ${({ theme }) => css`
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: ${theme.fonts.family.primary};
+    font-family: "Roboto", sans-serif;
     font-size: 1.6rem;
     background: ${theme.colors.background};
     color: ${theme.colors.baseText};
