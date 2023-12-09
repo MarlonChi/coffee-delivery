@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Container/> should render the heading 1`] = `
+.c0 {
+  width: 100%;
+  max-width: 144rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+<div
+  class="c0"
+>
+  <span>
+    Coffe Delivery
+  </span>
+</div>
+`;
