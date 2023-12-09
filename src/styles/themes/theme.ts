@@ -27,4 +27,7 @@ export default {
       secondary: "Baloo 2",
     },
   },
+  shadow: {
+    header: "0px 1px 10px 3px rgba(0, 0, 0, 0.1)",
+  },
 } as const;

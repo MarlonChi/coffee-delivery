@@ -5,12 +5,14 @@ import { Provider } from "react-redux";
 import store from "./store/configureStore";
 
 import BannerMain from "./components/BannerMain";
+import Header from "./components/Header";
 
 function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <Header />
         <h1>Coffee Delivery</h1>
         <BannerMain />
       </ThemeProvider>
