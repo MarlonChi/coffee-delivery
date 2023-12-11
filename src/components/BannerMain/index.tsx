@@ -18,25 +18,25 @@ const BannerMain = () => {
             <S.InformationItems>
               <S.InfoItem>
                 <span>
-                  <ShoppingCart size={16} weight="bold" />{" "}
+                  <ShoppingCart size={16} weight="bold" color="white" />
                 </span>
                 Compra simples e segura
               </S.InfoItem>
               <S.InfoItem>
                 <span>
-                  <Package size={16} weight="duotone" />
+                  <Package size={16} weight="duotone" color="white" />
                 </span>
                 Embalagem mantém o café intacto
               </S.InfoItem>
               <S.InfoItem>
                 <span>
-                  <Timer size={16} weight="fill" />
+                  <Timer size={16} weight="fill" color="white" />
                 </span>
                 Entrega rápida e rastreada
               </S.InfoItem>
               <S.InfoItem>
                 <span>
-                  <Coffee size={16} weight="fill" />
+                  <Coffee size={16} weight="fill" color="white" />
                 </span>
                 O café chega fresquinho até você
               </S.InfoItem>
