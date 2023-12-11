@@ -13,7 +13,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <h1>Coffee Delivery</h1>
         <BannerMain />
       </ThemeProvider>
     </Provider>
