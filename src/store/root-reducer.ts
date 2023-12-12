@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-import contador from "./contador/slice";
+import inputQuantity from "./inputQuantity/slice";
 
-const rootReducer = combineReducers({ contador });
+const rootReducer = combineReducers({ inputQuantity });
 
 export default rootReducer;
