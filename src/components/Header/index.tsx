@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { MapPin, ShoppingCartSimple } from "phosphor-react";
 
 import { Container } from "../Container";
@@ -11,15 +12,19 @@ const Header = () => {
     <S.HeaderContainer>
       <Container>
         <S.HeaderContent>
-          <img src={Logo} alt="" />
+          <NavLink to="/">
+            <img src={Logo} alt="" />
+          </NavLink>
           <S.HeaderActions>
             <S.Locale>
               <MapPin size={22} weight="fill" />
               Erechim, RS
             </S.Locale>
-            <S.Cart>
-              <ShoppingCartSimple size={22} weight="fill" />
-            </S.Cart>
+            <NavLink to="/checkout">
+              <S.Cart>
+                <ShoppingCartSimple size={22} weight="fill" />
+              </S.Cart>
+            </NavLink>
           </S.HeaderActions>
         </S.HeaderContent>
       </Container>

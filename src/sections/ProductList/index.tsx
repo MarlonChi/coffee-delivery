@@ -26,7 +26,7 @@ const ProductList = () => {
         {data && (
           <S.Products>
             {data.map((item: ProductListProps) => (
-              <ProductCard product={item} />
+              <ProductCard key={item.name} product={item} />
             ))}
           </S.Products>
         )}

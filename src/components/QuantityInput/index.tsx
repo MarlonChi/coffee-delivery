@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Minus, Plus } from "phosphor-react";
 
 import * as S from "./styles";
@@ -21,7 +21,7 @@ const QuantityInput = () => {
       <S.Decrease onClick={decrement}>
         <Minus size={14} weight="bold" />
       </S.Decrease>
-      <S.Quantity type="text" value={quantity} />
+      <S.Quantity type="text" value={quantity} readOnly />
       <S.Increase onClick={increment}>
         <Plus size={14} weight="bold" />
       </S.Increase>

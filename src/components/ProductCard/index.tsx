@@ -13,7 +13,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <S.Image src={product.image} alt={product.name} />
       <S.ProductTags>
         {product.tags.map((tag) => (
-          <ProductTag label={tag} />
+          <ProductTag key={tag} label={tag} />
         ))}
       </S.ProductTags>
       <S.CardDescription>
