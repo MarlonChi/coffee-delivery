@@ -22,7 +22,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </S.CardDescription>
 
       <S.CardFooter>
-        <S.ProductPrice>R$ {product.price}</S.ProductPrice>
+        <S.ProductPrice>
+          R$ {product.price.toFixed(2).replace(".", ",")}
+        </S.ProductPrice>
         <S.Quantity>
           <QuantityInput />
         </S.Quantity>
