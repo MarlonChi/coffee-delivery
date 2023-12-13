@@ -9,7 +9,7 @@ const Main = () => {
     <S.MainContainer>
       <Header />
       <BannerMain />
-      {/* <ProductList /> */}
+      <ProductList />
     </S.MainContainer>
   );
 };
