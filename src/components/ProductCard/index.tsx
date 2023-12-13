@@ -3,24 +3,26 @@ import { ShoppingCartSimple } from "phosphor-react";
 import ProductTag from "../ProductTag";
 import QuantityInput from "../QuantityInput";
 
-import Coffe from "../../assets/product-sample.svg";
-
 import * as S from "./styles";
 
-const ProductCard = () => {
+import { ProductCardProps } from "./types";
+
+const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <S.ProductCardContainer>
-      <S.Image src={Coffe} alt="Imagem de uma xícara de cáfé expresso" />
+      <S.Image src={product.image} alt={product.name} />
       <S.ProductTags>
-        <ProductTag label="Tradicional" />
+        {product.tags.map((tag) => (
+          <ProductTag label={tag} />
+        ))}
       </S.ProductTags>
       <S.CardDescription>
-        <h3>Expresso Tradicional</h3>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
       </S.CardDescription>
 
       <S.CardFooter>
-        <S.ProductPrice>R$ 9,90</S.ProductPrice>
+        <S.ProductPrice>R$ {product.price}</S.ProductPrice>
         <S.Quantity>
           <QuantityInput />
         </S.Quantity>
