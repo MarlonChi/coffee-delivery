@@ -22,6 +22,10 @@ const ButtonBase = styled.button`
     display: flex;
     align-items: center;
     cursor: pointer;
+
+    &:hover {
+      color: ${theme.colors.purpleDark};
+    }
   `}
 `;
 
