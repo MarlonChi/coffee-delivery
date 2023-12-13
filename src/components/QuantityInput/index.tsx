@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { Minus, Plus } from "phosphor-react";
 
 import * as S from "./styles";
