@@ -5,6 +5,7 @@ export const CheckoutContainer = styled.section`
 `;
 
 export const CheckoutContent = styled.div`
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
 `;

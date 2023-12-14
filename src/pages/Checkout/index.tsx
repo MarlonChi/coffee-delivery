@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import { Container } from "../../components/Container";
 
 import * as S from "./styles";
+import CheckoutPayments from "../../components/CheckoutPayments";
 
 const Checkout = () => {
   return (
@@ -12,6 +13,7 @@ const Checkout = () => {
         <S.CheckoutContent>
           <div>
             <AddressForm />
+            <CheckoutPayments />
           </div>
           <div>
             <h1>Resume</h1>

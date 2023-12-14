@@ -1,9 +1,9 @@
 import { MapPinLine } from "phosphor-react";
 
 import Heading from "../Heading";
+import Input from "../Input";
 
 import * as S from "./styles";
-import Input from "../Input";
 
 const AddressForm = () => {
   return (
