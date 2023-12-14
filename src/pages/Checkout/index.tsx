@@ -4,6 +4,7 @@ import { Container } from "../../components/Container";
 
 import * as S from "./styles";
 import CheckoutPayments from "../../components/CheckoutPayments";
+import OrderResume from "../../components/OrderResume";
 
 const Checkout = () => {
   return (
@@ -16,7 +17,7 @@ const Checkout = () => {
             <CheckoutPayments />
           </div>
           <div>
-            <h1>Resume</h1>
+            <OrderResume />
           </div>
         </S.CheckoutContent>
       </Container>

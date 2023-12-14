@@ -11,6 +11,7 @@ export const QuantityInputContainer = styled.div`
 
     background: ${theme.colors.baseButton};
     padding: 0.8rem;
+    border-radius: 6px;
   `}
 `;
 
