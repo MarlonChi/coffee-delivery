@@ -18,16 +18,11 @@ const AddressForm = () => {
           </div>
         </S.CardHeader>
         <S.InputGroup>
-          <Input
-            name="cep"
-            type="text"
-            placeholder="Informe seu CEP"
-            required
-          />
+          <Input name="cep" type="text" placeholder="CEP" required />
           <Input
             name="address"
             type="text"
-            placeholder="Nome da rua"
+            placeholder="Rua"
             fullWidth
             required
           />
@@ -36,7 +31,7 @@ const AddressForm = () => {
             <Input
               name="complement"
               type="text"
-              placeholder="Número"
+              placeholder="Complemento"
               fullWidth
             />
           </S.InputRow>
@@ -49,13 +44,7 @@ const AddressForm = () => {
               fullWidth
               required
             />
-            <Input
-              name="state"
-              type="text"
-              placeholder="Estado"
-              small
-              required
-            />
+            <Input name="state" type="text" placeholder="UF" small required />
           </S.InputRow>
         </S.InputGroup>
       </S.AddressForm>
