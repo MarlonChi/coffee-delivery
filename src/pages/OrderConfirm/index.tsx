@@ -1,4 +1,4 @@
-import { MapPin } from "phosphor-react";
+import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
 
 import Header from "../../components/Header";
 import { Container } from "../../components/Container";
@@ -19,25 +19,29 @@ const OrderConfirm = () => {
             <p>Agora é só aguardar que logo o café chegará até você</p>
             <S.InfoBox>
               <S.ResumeItem>
-                <S.Icon>
+                <S.Icon style={{ background: "#8047f8" }}>
                   <MapPin size={16} weight="fill" />
                 </S.Icon>
-                Entrega em Rua João Daniel Martinelli, 102 Farrapos - Porto
-                Alegre, RS
+                <div>
+                  Entrega em <b>Rua João Daniel Martinelli</b>, 102 Farrapos -
+                  Porto Alegre, RS
+                </div>
               </S.ResumeItem>
               <S.ResumeItem>
-                <S.Icon>
-                  <MapPin size={16} weight="fill" />
+                <S.Icon style={{ background: "#DBAC2C" }}>
+                  <Timer size={16} weight="fill" />
                 </S.Icon>
-                Entrega em Rua João Daniel Martinelli, 102 Farrapos - Porto
-                Alegre, RS
+                <div>
+                  Previsão de entrega <br /> <b>20 min - 30 min</b>
+                </div>
               </S.ResumeItem>
               <S.ResumeItem>
-                <S.Icon>
-                  <MapPin size={16} weight="fill" />
+                <S.Icon style={{ background: "#C47F17" }}>
+                  <CurrencyDollar size={16} />
                 </S.Icon>
-                Entrega em Rua João Daniel Martinelli, 102 Farrapos - Porto
-                Alegre, RS
+                <div>
+                  Pagamento na entrega <br /> <b>Cartão de Crédito</b>
+                </div>
               </S.ResumeItem>
             </S.InfoBox>
           </S.OrderConfirmInfos>

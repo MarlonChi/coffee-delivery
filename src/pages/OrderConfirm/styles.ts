@@ -6,11 +6,21 @@ export const OrderConfirmContainer = styled.section`
 `;
 
 export const OrderConfirmContent = styled.div`
-  ${() => css`
+  ${({ theme }) => css`
     margin-top: 6rem;
     display: flex;
+    flex-direction: column;
+    row-gap: 3.2rem;
     justify-content: space-between;
     align-items: center;
+
+    @media (min-width: ${theme.breakpoints.tabletLandscape}) {
+      flex-direction: row;
+    }
+
+    img {
+      width: 100%;
+    }
   `}
 `;
 
@@ -33,7 +43,7 @@ export const OrderConfirmInfos = styled.div`
 
 export const InfoBox = styled.div`
   ${({ theme }) => css`
-    padding: 4rem;
+    padding: 2rem;
     margin-top: 4rem;
     border-radius: 6px 36px;
     border: 1px solid ${theme.colors.purple};
@@ -44,6 +54,10 @@ export const InfoBox = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 3.2rem;
+
+    @media (min-width: ${theme.breakpoints.tabletLandscape}) {
+      padding: 4rem;
+    }
   `}
 `;
 
@@ -51,16 +65,18 @@ export const ResumeItem = styled.div`
   ${({ theme }) => css`
     display: flex;
     gap: 1.2rem;
+
+    div {
+      max-width: 310px;
+    }
   `}
 `;
 
 export const Icon = styled.div`
   ${({ theme }) => css`
     border-radius: 1000px;
-    background: #8047f8;
     width: 3.2rem;
     height: 3.2rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
