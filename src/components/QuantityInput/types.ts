@@ -1,1 +1,3 @@
-export type QuantityInputProps = {}
+export type QuantityInputProps = {
+  product: any;
+};

@@ -1,13 +1,21 @@
+import { useDispatch } from "react-redux";
 import { ShoppingCartSimple } from "phosphor-react";
 
 import ProductTag from "../ProductTag";
 import QuantityInput from "../QuantityInput";
+import { addProductToCart } from "../../store/cart/slice";
 
 import * as S from "./styles";
 
 import { ProductCardProps } from "./types";
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const dispatch = useDispatch();
+
+  const handleProductClick = () => {
+    dispatch(addProductToCart(product));
+  };
+
   return (
     <S.ProductCardContainer>
       <S.Image src={product.image} alt={product.name} />
@@ -26,9 +34,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
           R$ {product.price.toFixed(2).replace(".", ",")}
         </S.ProductPrice>
         <S.Quantity>
-          <QuantityInput />
+          <QuantityInput product={product} />
         </S.Quantity>
-        <S.AddToCart>
+        <S.AddToCart onClick={handleProductClick}>
           <ShoppingCartSimple size={22} weight="fill" />
         </S.AddToCart>
       </S.CardFooter>

@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Minus, Plus } from "phosphor-react";
 
 import * as S from "./styles";
+import { QuantityInputProps } from "./types";
 
-const QuantityInput = () => {
+const QuantityInput = ({ product }: QuantityInputProps) => {
+  const cartItems = useSelector((state: any) => state.cart.cartItems);
+  console.log(cartItems);
+
   const [quantity, setQuantity] = useState(0);
 
   const increment = () => {
