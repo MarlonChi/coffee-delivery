@@ -1,20 +1,16 @@
-import { useDispatch } from "react-redux";
-import { ShoppingCartSimple } from "phosphor-react";
+import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
 
 import ProductTag from "../ProductTag";
-import QuantityInput from "../QuantityInput";
-import { addProductToCart } from "../../store/cart/slice";
 
 import * as S from "./styles";
-
 import { ProductCardProps } from "./types";
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  const dispatch = useDispatch();
+  const handleProductClick = () => {};
 
-  const handleProductClick = () => {
-    dispatch(addProductToCart(product));
-  };
+  const handleIncrement = () => {};
+
+  const handleDecrement = () => {};
 
   return (
     <S.ProductCardContainer>
@@ -33,9 +29,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <S.ProductPrice>
           R$ {product.price.toFixed(2).replace(".", ",")}
         </S.ProductPrice>
-        <S.Quantity>
-          <QuantityInput product={product} />
-        </S.Quantity>
+        <S.QuantityInputContainer>
+          <S.Decrease onClick={handleDecrement}>
+            <Minus size={14} weight="bold" />
+          </S.Decrease>
+          <S.Quantity type="text" value="0" readOnly />
+          <S.Increase onClick={handleIncrement}>
+            <Plus size={14} weight="bold" />
+          </S.Increase>
+        </S.QuantityInputContainer>
         <S.AddToCart onClick={handleProductClick}>
           <ShoppingCartSimple size={22} weight="fill" />
         </S.AddToCart>
