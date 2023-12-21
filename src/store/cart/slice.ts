@@ -20,8 +20,9 @@ const cartSlice = createSlice({
         state.cartItems.push({ ...newItem, quantity: 1 });
       }
     },
+    increaseProductQuantity: (state, action) => {},
   },
 });
 
 export default cartSlice.reducer;
-export const { addProductToCart } = cartSlice.actions;
+export const { addProductToCart, increaseProductQuantity } = cartSlice.actions;
