@@ -17,11 +17,13 @@ export const OrderConfirmContent = styled.div`
     @media (min-width: ${theme.breakpoints.tabletLandscape}) {
       flex-direction: row;
     }
-
-    img {
-      width: 100%;
-    }
   `}
+`;
+
+export const ImageContainer = styled.div`
+  img {
+    width: 100%;
+  }
 `;
 
 export const OrderConfirmInfos = styled.div`
@@ -62,7 +64,7 @@ export const InfoBox = styled.div`
 `;
 
 export const ResumeItem = styled.div`
-  ${({ theme }) => css`
+  ${() => css`
     display: flex;
     gap: 1.2rem;
 
@@ -73,7 +75,7 @@ export const ResumeItem = styled.div`
 `;
 
 export const Icon = styled.div`
-  ${({ theme }) => css`
+  ${() => css`
     border-radius: 1000px;
     width: 3.2rem;
     height: 3.2rem;

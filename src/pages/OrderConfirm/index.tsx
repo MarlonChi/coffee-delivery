@@ -45,10 +45,12 @@ const OrderConfirm = () => {
               </S.ResumeItem>
             </S.InfoBox>
           </S.OrderConfirmInfos>
-          <img
-            src={DeliveryImage}
-            alt="Homem em uma moto indo a caminho da entrega"
-          />
+          <S.ImageContainer>
+            <img
+              src={DeliveryImage}
+              alt="Homem em uma moto indo a caminho da entrega"
+            />
+          </S.ImageContainer>
         </S.OrderConfirmContent>
       </Container>
     </S.OrderConfirmContainer>
