@@ -3,11 +3,14 @@ import { MapPin, ShoppingCartSimple } from "phosphor-react";
 
 import { Container } from "../Container";
 
+import { useSelector } from "react-redux";
 import Logo from "../../assets/logo.svg";
 
 import * as S from "./styles";
 
 const Header = () => {
+  const { state, city } = useSelector((state: any) => state.checkout);
+
   return (
     <S.HeaderContainer>
       <Container>
@@ -16,10 +19,12 @@ const Header = () => {
             <img src={Logo} alt="" />
           </NavLink>
           <S.HeaderActions>
-            <S.Locale>
-              <MapPin size={22} weight="fill" />
-              Erechim, RS
-            </S.Locale>
+            {state && city && (
+              <S.Locale>
+                <MapPin size={22} weight="fill" />
+                {city}, {state}
+              </S.Locale>
+            )}
             <NavLink to="/checkout">
               <S.Cart>
                 <ShoppingCartSimple size={22} weight="fill" />

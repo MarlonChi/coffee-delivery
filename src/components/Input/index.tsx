@@ -8,6 +8,7 @@ const Input = ({
   type,
   disabled,
   fullWidth,
+  ...props
 }: InputProps) => {
   return (
     <S.Input
@@ -16,6 +17,7 @@ const Input = ({
       placeholder={placeholder}
       disabled={disabled}
       fullWidth={fullWidth}
+      {...props}
     />
   );
 };

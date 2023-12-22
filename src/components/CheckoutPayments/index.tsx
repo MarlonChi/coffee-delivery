@@ -1,10 +1,17 @@
-import { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
 import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
+
+import { setAddressData } from "../../store/checkout/slice";
+
 import * as S from "./styles";
 
 const CheckoutPayments = () => {
-  const [payment, setPayment] = useState("");
+  const dispatch = useDispatch();
+  const addressData = useSelector((state: any) => state.checkout);
+
+  const handleInputChange = (name: string, value: string) => {
+    dispatch(setAddressData({ [name]: value }));
+  };
 
   return (
     <S.CheckoutPaymentsContainer>
@@ -18,8 +25,8 @@ const CheckoutPayments = () => {
         </div>
       </S.CardHeader>
       <S.PaymentType
-        onValueChange={(value) => setPayment(value)}
-        value={payment}
+        onValueChange={(value) => handleInputChange("paymentMethod", value)}
+        value={addressData.paymentMethod}
       >
         <S.PaymentTypeButton value="credit">
           <CreditCard size={16} />
