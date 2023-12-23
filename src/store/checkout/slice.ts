@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: any = {
+const initialState = {
   cep: "",
   address: "",
   number: "",
@@ -16,7 +16,15 @@ const checkoutSlice = createSlice({
   initialState,
   reducers: {
     setAddressData: (state, action) => {
-      return { ...state, ...action.payload };
+      const { logradouro, localidade, bairro, uf, ...rest } = action.payload;
+      return {
+        ...state,
+        ...rest,
+        address: logradouro,
+        city: localidade,
+        district: bairro,
+        state: uf,
+      };
     },
   },
 });

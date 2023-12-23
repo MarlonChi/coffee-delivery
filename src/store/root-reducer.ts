@@ -6,4 +6,6 @@ import checkout from "./checkout/slice";
 
 const rootReducer = combineReducers({ products, cart, checkout });
 
+export type RootState = ReturnType<typeof rootReducer>;
+
 export default rootReducer;
