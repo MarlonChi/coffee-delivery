@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 import Heading from "../Heading";
 import OrderItem from "../OrderItem";
@@ -8,6 +9,10 @@ import * as S from "./styles";
 
 const OrderResume = () => {
   const cartItems = useSelector((state: any) => state.cart.items);
+  const addressData = useSelector((state: any) => state.checkout);
+
+  const notify = () =>
+    toast.warn("Por favor, preencha todos os dados para prosseguir.");
 
   const cartProductsPrice = () => {
     return cartItems.reduce((total: any, product: any) => {
@@ -17,8 +22,13 @@ const OrderResume = () => {
 
   const cartTotalPrice = cartProductsPrice() + 8;
 
+  const isAddressDataValid = () => {
+    return !Object.values(addressData).some((value) => value === "");
+  };
+
   return (
     <S.OrderResumeContainer>
+      <ToastContainer />
       <Heading size="small">Cafés selecionados</Heading>
       <S.OrderResume>
         {cartItems?.map((item: any) => (
@@ -50,9 +60,13 @@ const OrderResume = () => {
             </span>
           </strong>
         </S.OrderRow>
-        <NavLink to="/order-confirmed">
-          <S.ConfirmButton>Confirmar Pedido</S.ConfirmButton>
-        </NavLink>
+        {!isAddressDataValid() ? (
+          <S.ConfirmButton onClick={notify}>Confirmar Pedido</S.ConfirmButton>
+        ) : (
+          <NavLink to="/order-confirmed">
+            <S.ConfirmButton>Confirmar Pedido</S.ConfirmButton>
+          </NavLink>
+        )}
       </S.OrderResume>
     </S.OrderResumeContainer>
   );

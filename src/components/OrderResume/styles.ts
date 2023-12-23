@@ -66,5 +66,9 @@ export const ConfirmButton = styled.button`
     &:hover {
       background: ${theme.colors.yellowDark};
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   `}
 `;
