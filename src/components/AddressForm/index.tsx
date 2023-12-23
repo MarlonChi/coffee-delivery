@@ -5,7 +5,6 @@ import { MapPinLine } from "phosphor-react";
 import Heading from "../Heading";
 import Input from "../Input";
 import { setAddressData } from "../../store/checkout/slice";
-import { fetchAddressByCep } from "../../store/checkout/actions";
 
 import * as S from "./styles";
 
@@ -16,9 +15,6 @@ const AddressForm = () => {
   const handleChange = (e: any) => {
     const { name, value } = e.target;
 
-    if (name === "cep" && value.length === 8) {
-      dispatch(fetchAddressByCep(value));
-    }
     dispatch(setAddressData({ [name]: value }));
   };
 

@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
 
 import Header from "../../components/Header";
@@ -9,6 +10,8 @@ import DeliveryImage from "../../assets/order-confirm.svg";
 import * as S from "./styles";
 
 const OrderConfirm = () => {
+  const addressData = useSelector((state: any) => state.checkout);
+
   return (
     <S.OrderConfirmContainer>
       <Header />
@@ -23,8 +26,9 @@ const OrderConfirm = () => {
                   <MapPin size={16} weight="fill" />
                 </S.Icon>
                 <div>
-                  Entrega em <b>Rua João Daniel Martinelli</b>, 102 Farrapos -
-                  Porto Alegre, RS
+                  Entrega em <b>{addressData.address}</b>, {addressData.number},
+                  {addressData.district} - {addressData.city},
+                  {addressData.state}
                 </div>
               </S.ResumeItem>
               <S.ResumeItem>
@@ -40,7 +44,14 @@ const OrderConfirm = () => {
                   <CurrencyDollar size={16} />
                 </S.Icon>
                 <div>
-                  Pagamento na entrega <br /> <b>Cartão de Crédito</b>
+                  Pagamento na entrega <br />
+                  {addressData.paymentMethod === "credit" && (
+                    <b>Cartão de Crédito</b>
+                  )}
+                  {addressData.paymentMethod === "debit" && (
+                    <b>Cartão de Débito</b>
+                  )}
+                  {addressData.paymentMethod === "money" && <b>Dinheiro</b>}
                 </div>
               </S.ResumeItem>
             </S.InfoBox>
