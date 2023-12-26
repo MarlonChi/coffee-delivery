@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
 
+import { RootState } from "../../store/configureStore";
+
 import Header from "../../components/Header";
 import { Container } from "../../components/Container";
 import Heading from "../../components/Heading";
@@ -10,7 +12,7 @@ import DeliveryImage from "../../assets/order-confirm.svg";
 import * as S from "./styles";
 
 const OrderConfirm = () => {
-  const addressData = useSelector((state: any) => state.checkout);
+  const addressData = useSelector((state: RootState) => state.checkout);
 
   return (
     <S.OrderConfirmContainer>

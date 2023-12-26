@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: any = {
+import { CartSliceProps } from "./types";
+
+const initialState: CartSliceProps = {
   items: [],
 };
 
@@ -10,9 +12,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const { product } = action.payload;
-      const existingItem = state.items.find(
-        (item: any) => item.id === product.id
-      );
+      const existingItem = state.items.find((item) => item.id === product.id);
 
       if (existingItem) {
         // Se o item já estiver no carrinho, incrementa a quantidade
@@ -25,7 +25,7 @@ const cartSlice = createSlice({
     incrementQuantity: (state, action) => {
       const { product } = action.payload;
       const itemToIncrement = state.items.find(
-        (item: any) => item.id === product.id
+        (item) => item.id === product.id
       );
 
       if (itemToIncrement) {
@@ -39,7 +39,7 @@ const cartSlice = createSlice({
     decrementQuantity: (state, action) => {
       const { product } = action.payload;
       const itemToDecrement = state.items.find(
-        (item: any) => item.id === product.id
+        (item) => item.id === product.id
       );
 
       if (itemToDecrement) {
@@ -48,15 +48,13 @@ const cartSlice = createSlice({
 
         // Remove o item do carrinho se a quantidade atingir zero
         if (itemToDecrement.quantity === 0) {
-          state.items = state.items.filter(
-            (item: any) => item.id !== product.id
-          );
+          state.items = state.items.filter((item) => item.id !== product.id);
         }
       }
     },
     removeFromCart: (state, action) => {
       const { product } = action.payload;
-      state.items = state.items.filter((item: any) => item.id !== product.id);
+      state.items = state.items.filter((item) => item.id !== product.id);
     },
   },
 });

@@ -1,7 +1,6 @@
 import { ThunkAction } from "redux-thunk";
-import { RootState } from "../root-reducer";
 import { Action } from "@reduxjs/toolkit";
-
+import { RootState } from "../configureStore";
 import { setAddressData } from "./slice";
 
 export const fetchAddressByCep =

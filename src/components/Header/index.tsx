@@ -4,12 +4,14 @@ import { MapPin, ShoppingCartSimple } from "phosphor-react";
 import { Container } from "../Container";
 
 import { useSelector } from "react-redux";
+import { RootState } from "../../store/configureStore";
+
 import Logo from "../../assets/logo.svg";
 
 import * as S from "./styles";
 
 const Header = () => {
-  const { state, city } = useSelector((state: any) => state.checkout);
+  const { state, city } = useSelector((state: RootState) => state.checkout);
 
   return (
     <S.HeaderContainer>

@@ -1,17 +1,22 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { fetchProducts } from "../../store/products/action";
+import { RootState } from "../../store/configureStore";
+
 import { Container } from "../../components/Container";
 import Heading from "../../components/Heading";
+import ProductCard from "../../components/ProductCard";
+
+import { ProductListProps } from "./types";
 
 import * as S from "./styles";
-import { fetchProducts } from "../../store/products/action";
-import ProductCard from "../../components/ProductCard";
-import { ProductListProps } from "./types";
 
 const ProductList = () => {
   const dispatch = useDispatch();
-  const { loading, error, data } = useSelector((state: any) => state.products);
+  const { loading, error, data } = useSelector(
+    (state: RootState) => state.products
+  );
 
   useEffect(() => {
     dispatch(fetchProducts());

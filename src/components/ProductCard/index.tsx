@@ -10,10 +10,11 @@ import {
   decrementQuantity,
   incrementQuantity,
 } from "../../store/cart/slice";
+import { RootState } from "../../store/configureStore";
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state: any) => state.cart.items);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const handleAddToCart = () => {
     dispatch(addToCart({ product }));
@@ -28,7 +29,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   const quantityInCart =
-    cartItems.find((item: any) => item.id === product.id)?.quantity || 0;
+    cartItems.find((item: ProductCardProps) => item.id === product.id)
+      ?.quantity || 0;
 
   return (
     <S.ProductCardContainer>

@@ -7,9 +7,11 @@ import {
   removeFromCart,
 } from "../../store/cart/slice";
 
+import { OrderItemProps } from "./types";
+
 import * as S from "./styles";
 
-const OrderItem = ({ product }: any) => {
+const OrderItem = ({ product }: OrderItemProps) => {
   const dispatch = useDispatch();
 
   const handleIncrement = () => {

@@ -1,4 +1,8 @@
-export type OrderResumeProps = {
+export type CartSliceProps = {
+  items: Product[];
+};
+
+type Product = {
   id: number;
   description: string;
   image: string;

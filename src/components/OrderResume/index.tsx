@@ -2,20 +2,24 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
+import { RootState } from "../../store/configureStore";
+
 import Heading from "../Heading";
 import OrderItem from "../OrderItem";
+
+import { OrderResumeProps } from "./types";
 
 import * as S from "./styles";
 
 const OrderResume = () => {
-  const cartItems = useSelector((state: any) => state.cart.items);
-  const addressData = useSelector((state: any) => state.checkout);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const addressData = useSelector((state: RootState) => state.checkout);
 
   const notify = () =>
     toast.warn("Por favor, preencha todos os dados para prosseguir.");
 
   const cartProductsPrice = () => {
-    return cartItems.reduce((total: any, product: any) => {
+    return cartItems.reduce((total: number, product: OrderResumeProps) => {
       return total + product.quantity * product.price;
     }, 0);
   };
@@ -31,7 +35,7 @@ const OrderResume = () => {
       <ToastContainer />
       <Heading size="small">Cafés selecionados</Heading>
       <S.OrderResume>
-        {cartItems?.map((item: any) => (
+        {cartItems?.map((item: OrderResumeProps) => (
           <div key={item.id}>
             <OrderItem product={item} />
             <S.Divider />

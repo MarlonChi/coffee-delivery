@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: any = {
+import { CheckoutSliceProps } from "./types";
+
+const initialState: CheckoutSliceProps = {
   cep: "",
   address: "",
   number: "",

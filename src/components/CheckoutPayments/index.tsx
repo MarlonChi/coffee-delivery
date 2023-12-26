@@ -2,12 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
 
 import { setAddressData } from "../../store/checkout/slice";
+import { RootState } from "../../store/configureStore";
 
 import * as S from "./styles";
 
 const CheckoutPayments = () => {
   const dispatch = useDispatch();
-  const addressData = useSelector((state: any) => state.checkout);
+  const addressData = useSelector((state: RootState) => state.checkout);
 
   const handleInputChange = (name: string, value: string) => {
     dispatch(setAddressData({ [name]: value }));

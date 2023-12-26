@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { MapPinLine } from "phosphor-react";
@@ -5,14 +6,15 @@ import { MapPinLine } from "phosphor-react";
 import Heading from "../Heading";
 import Input from "../Input";
 import { setAddressData } from "../../store/checkout/slice";
+import { RootState } from "../../store/configureStore";
 
 import * as S from "./styles";
 
 const AddressForm = () => {
   const dispatch = useDispatch();
-  const addressData = useSelector((state: any) => state.checkout);
+  const addressData = useSelector((state: RootState) => state.checkout);
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     dispatch(setAddressData({ [name]: value }));
