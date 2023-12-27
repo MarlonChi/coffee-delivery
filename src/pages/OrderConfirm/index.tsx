@@ -28,8 +28,12 @@ const OrderConfirm = () => {
                   <MapPin size={16} weight="fill" />
                 </S.Icon>
                 <div>
-                  Entrega em <b>{addressData.address}</b>, {addressData.number},
-                  {addressData.district} - {addressData.city},
+                  Entrega em{" "}
+                  <b>
+                    {addressData.address} - {addressData.number}
+                  </b>
+                  , <br /> {addressData.district} - {addressData.city}
+                  {" - "}
                   {addressData.state}
                 </div>
               </S.ResumeItem>

@@ -21,12 +21,11 @@ const Header = () => {
             <img src={Logo} alt="" />
           </NavLink>
           <S.HeaderActions>
-            {state && city && (
-              <S.Locale>
-                <MapPin size={22} weight="fill" />
-                {city}, {state}
-              </S.Locale>
-            )}
+            <S.Locale>
+              <MapPin size={22} weight="fill" />
+              {state && city && `${city}, ${state}`}
+            </S.Locale>
+
             <NavLink to="/checkout">
               <S.Cart>
                 <ShoppingCartSimple size={22} weight="fill" />
