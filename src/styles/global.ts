@@ -37,6 +37,10 @@ ${({ theme }) => css`
     color: ${theme.colors.baseTitle};
   }
 
+  a {
+    all: unset;
+  }
+
   ul,
   li {
     list-style: none;

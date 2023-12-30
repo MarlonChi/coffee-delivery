@@ -20,7 +20,24 @@ export const HeaderContent = styled.div`
 export const HeaderActions = styled.div`
   ${() => css`
     display: flex;
+    align-items: center;
     gap: 1.2rem;
+  `}
+`;
+
+export const UserDropdown = styled.div`
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1.6rem;
+`;
+
+export const LoginButton = styled.div`
+  ${({ theme }) => css`
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: ${theme.colors.baseSubtitle};
   `}
 `;
 
@@ -54,6 +71,18 @@ export const Cart = styled(HeaderButtons)`
   ${({ theme }) => css`
     background: ${theme.colors.yellowLight};
     color: ${theme.colors.yellowDark};
+
+    &:hover {
+      background: ${theme.colors.yellowDark};
+      color: ${theme.colors.yellowLight};
+    }
+  `}
+`;
+
+export const Logout = styled(HeaderButtons)`
+  ${({ theme }) => css`
+    background: ${theme.colors.baseButton};
+    color: ${theme.colors.baseTitle};
 
     &:hover {
       background: ${theme.colors.yellowDark};
