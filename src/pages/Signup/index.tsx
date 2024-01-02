@@ -1,72 +1,90 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 
 import { auth } from "../../config/firebase.config";
+import coffeImg from "../../assets/banner-img.svg";
+
+import Header from "../../components/Header";
+import Heading from "../../components/Heading";
+import Input from "../../components/Input";
+import { Container } from "../../components/Container";
+
+import * as S from "./styles";
 
 const SignUp = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
-  const onSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        navigate("/login");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+    if (password === passwordConfirm) {
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          toast.success("Conta criada com sucesso!");
+          navigate("/");
+        })
+        .catch(() => {
+          toast.error(
+            "Falha ao criar conta, verifique os dados e tente novamente!"
+          );
+        });
+    } else {
+      toast.warn("As senhas precisam ser iguais.");
+    }
   };
 
   return (
-    <main>
-      <section>
-        <div>
-          <div>
-            <h1> Coffe Delivery - Signup</h1>
-            <form>
-              <div>
-                <label htmlFor="email-address">Email address</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="Email address"
-                />
-              </div>
+    <S.SignUpContainer>
+      <Header />
+      <Container>
+        <S.SignUpContent>
+          <S.SignUpImage>
+            <img src={coffeImg} alt="Imagem de um copo de café" />
+          </S.SignUpImage>
+          <S.FormContent>
+            <Heading size="large">Cadastre-se</Heading>
+            <form onSubmit={handleSubmit}>
+              <Input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="Seu endereço de e-mail"
+              />
+              <Input
+                name="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Senha"
+              />
+              <Input
+                name="password-confirm"
+                type="password"
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+                required
+                placeholder="Confirme a senha"
+              />
 
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="Password"
-                />
-              </div>
-
-              <button type="submit" onClick={onSubmit}>
-                Sign up
-              </button>
+              <S.SignInButton type="submit">Cadastrar</S.SignInButton>
             </form>
 
-            <p>
-              Already have an account? <NavLink to="/login">Sign in</NavLink>
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
+            <S.AlreadyHaveAnAccount>
+              Já possuí conta? <NavLink to="/login">Entrar</NavLink>
+            </S.AlreadyHaveAnAccount>
+          </S.FormContent>
+        </S.SignUpContent>
+      </Container>
+    </S.SignUpContainer>
   );
 };
 
