@@ -27,7 +27,7 @@ const SignUp = () => {
       await createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           toast.success("Conta criada com sucesso!");
-          navigate("/");
+          navigate("/login");
         })
         .catch(() => {
           toast.error(

@@ -5,13 +5,20 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
 import { setUser } from "../../store/auth/slice";
 
+import * as S from "./styles";
+import Header from "../../components/Header";
+import { Container } from "../../components/Container";
+import coffeImg from "../../assets/banner-img.svg";
+import Heading from "../../components/Heading";
+import Input from "../../components/Input";
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onLogin = (e: any) => {
+  const handleLogin = (e: any) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential: any) => {
@@ -28,49 +35,43 @@ const Login = () => {
   };
 
   return (
-    <>
-      <main>
-        <section>
-          <div>
-            <p> Coffe Delivery - Login </p>
+    <S.LoginContainer>
+      <Header />
+      <Container>
+        <S.LoginContent>
+          <S.LoginImage>
+            <img src={coffeImg} alt="Imagem de um copo de café" />
+          </S.LoginImage>
+          <S.FormContent>
+            <Heading size="large">Login</Heading>
+            <form onSubmit={handleLogin}>
+              <Input
+                id="email-address"
+                name="email"
+                type="email"
+                required
+                placeholder="Seu endereço de e-mail"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                required
+                placeholder="Digite sua senha"
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
-            <form>
-              <div>
-                <label htmlFor="email-address">Email address</label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="Email address"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <button onClick={onLogin}>Login</button>
-              </div>
+              <S.SignInButton type="submit">Entrar</S.SignInButton>
             </form>
 
-            <p className="text-sm text-white text-center">
-              No account yet? <NavLink to="/signup">Sign up</NavLink>
-            </p>
-          </div>
-        </section>
-      </main>
-    </>
+            <S.AlreadyHaveAnAccount>
+              Não tem conta? <NavLink to="/signin">Cadastre-se</NavLink>
+            </S.AlreadyHaveAnAccount>
+          </S.FormContent>
+        </S.LoginContent>
+      </Container>
+    </S.LoginContainer>
   );
 };
 
